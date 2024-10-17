@@ -71,6 +71,7 @@ DATABASE_USER=<your_username>
 DATABASE_NAME=<your_database_name>
 
 # Set the host of the database, default is "database" to link with the Docker Compose network
+# In case of using a different value, you should also change the Docker Compose configuration.
 DATABASE_HOST=<your_host>
 ```
 ### Instructions for replacing placeholders:
@@ -78,7 +79,7 @@ DATABASE_HOST=<your_host>
 -   <code><your_password></code>`: Replace with the password for the PostgreSQL user.
 -   <code><your_username></code>: Replace with your PostgreSQL username (e.g., <code>postgres</code>).
 -   <code><your_database_name></code>: The name of your PostgreSQL database (e.g., <code>lab-control</code>).
--   <code><your_host></code>: Set to <code>database</code> by default, which links to the Docker Compose service name, but can be changed if necessary.
+-   <code><your_host></code>: Set to <code>database</code> by default, which links to the Docker Compose service name, but can be changed if necessary. If you change this value, you should also update the Docker Compose configuration accordingly.
 
 <p>
 Once both <code>.env</code> files are configured, you can easily deploy the application by running the following command:
