@@ -3,6 +3,7 @@ import { body } from "express-validator"
 import { HandleInputErros } from "../middleware";
 import { AdminController } from "../controllers/Admin.Controller";
 import Admin from "../models/Admin.model";
+import validateRut from "../middleware/RutValidator";
 
 // Definig the Admin Router
 // TODO Finish the Router
@@ -21,6 +22,7 @@ routerAdmin.post(
         body("Rol").isIn(["Ayudante", "Admin", "Externo"]).withMessage("Rol invalido")
     ],
     HandleInputErros,
+    validateRut,
     AdminController.CreateUser // TODO <= funcion del controller boss vittorio
 )
 
