@@ -1,16 +1,16 @@
 import { Request, Response, NextFunction } from "express";
 import { validationResult } from "express-validator";
 
-// Middleware for returning the errores given by the router validation
+// No need to return a Response object, just use `void` for the function return type
 export const HandleInputErros = (
     req: Request,
     res: Response,
     next: NextFunction
-) => {
-    let erros = validationResult(req);
-    if (!erros.isEmpty()) {
-        return res.status(400).json({ erros: erros.array() });
+): void => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        res.status(400).json({ errors: errors.array() });  // Send error response
+        return;  // Stop execution after sending the response
     }
-    // if there is no error we jump to the next function in the router
-    next();
+    next();  // Continue if no errors
 };
