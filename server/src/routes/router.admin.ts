@@ -19,12 +19,13 @@ routerAdmin.post(
         body("Email").isEmail().withMessage("Email incorrecto"),
         body("Rut").matches(/^\d{7,8}-[0-9kK]$/).withMessage("Rut invalido"),
         body("Career").isString().withMessage("La carrera es obligatoria").notEmpty(),
-        body("Rol").isIn(["Ayudante", "Admin", "Externo"]).withMessage("Rol invalido")
+        body("Rol").isIn(["Ayudante", "Admin", "Externo"]).withMessage("Rol invalido"),
     ],
     HandleInputErros,
     validateRut,
     AdminController.CreateUser // TODO <= funcion del controller boss vittorio
 )
+
 
 routerAdmin.post(
     "/update-user",
@@ -44,7 +45,7 @@ routerAdmin.post(
     "/delete-user",
     [
         body('UserID').isNumeric().withMessage('El ID es obligatorio'),
-        body('Password').isString().isLength({min:8}).withMessage('La contrase;a es obligatoria')
+        body('Password').isString().isLength({ min: 8 }).withMessage('La contrase;a es obligatoria')
     ],
     HandleInputErros,
     AdminController.DeleteUser // TODO <= funcion del controller boss vittorio
