@@ -67,7 +67,7 @@ routerAdmin.get(
         body("Name").optional().isString(),
         body("EntryTime").isDate()
         body("Reason").isIn(["Entrada", "Salida"]).withMessage("El motivo debe ser 'entrada' o 'salida'"),
-    ]
+    ],
     HandleInputErros,
     AdminController.getActiveUsers // Controlador que manejará la lógica
 );
