@@ -132,4 +132,20 @@ export class AdminController {
         };
     };
 
+    static GetActiveUsers = async (req: Request, res: Response) => {
+        try {
+
+        } catch (error) {
+
+        };
+    };
+
+    static Login = async (req: Request, res: Response) => {
+        try {
+
+        } catch (error) {
+
+        };
+    };
+
 };
