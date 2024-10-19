@@ -17,6 +17,16 @@ export const CreateUserSchema = InitialSchema;
 // Esquema para actualizar usuario 
 export const UpdateUserSchema = InitialSchema.partial();
 
+// Esquema para obtener usuario 
+export const GetActiveUserSchema = z.object({
+    Name: z.string().min(1,"El nombre es obligatorio"),
+    LastName: z.string().min(1, "Los appelidos son obligatorios"),
+    EntryTime: z.string().min(1, "La fecha de entrada es obligatoria"),
+    Reason: z.string().min(1, "El motivo es obligatorio"),
+});
+
+export type GetActiveUser = z.infer<typeof GetActiveUserSchema>;
+
 // Esquema para eliminar usuario
 export const DeleteUserSchema = z.object({
     UserID: z.number().min(1, "El ID es obligatorio"),
@@ -34,6 +44,7 @@ export const CheckInSchema = z.object({
     Data: z.string().min(1, "La huella es obligatoria"),
     UserID: z.number().min(1, 'El ID es obligatorio'),
     Reason: z.string().min(1, "El motivo es obligatorio"),
+    EntryTime: z.string().min(1, "La fecha de salida es obligatoria"),
 });
 
 // Esquema para salida (log)
