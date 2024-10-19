@@ -44,7 +44,7 @@ The <code>.env</code> file in the server directory will contain backend-specific
 #### 1. **Server `.env` file** (located in the `server` directory) 
 This file contains the full database connection URL.
 
-```Python
+```dotenv
 # Server .env
 DATABASE_URL="postgresql://<your_username>:<your_password>@<your_host>:<your_port>/<your_database_name>"
 ```
@@ -59,7 +59,7 @@ You'll need to replace the placeholders with the actual values:
 ### 2. **Root `.env` file** (located in the root directory of the project)
 
 This file contains individual database environment variables used by Docker Compose to set up the database container.
-```Python
+```dotenv
 # Root .env (for Docker Compose)
 # Set your secret password for the database
 DATABASE_PASSWORD=<your_password>
