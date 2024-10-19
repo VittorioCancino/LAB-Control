@@ -12,19 +12,19 @@ z.object({
 });
 
 // Esquema para crear usuario 
-export const createUserSchema = InitialSchema;
+export const CreateUserSchema = InitialSchema;
 
 // Esquema para actualizar usuario 
-export const updateUserSchema = InitialSchema.partial();
+export const UpdateUserSchema = InitialSchema.partial();
 
 // Esquema para eliminar usuario
-export const deleteUserSchema = z.object({
+export const DeleteUserSchema = z.object({
     UserID: z.number().min(1, "El ID es obligatorio"),
     Password: z.string().min(8, "La contraseña debe tener 8 caracteres"),
 });
 
 // Esquema para inicio de sesión
-export const loginSchema = z.object({
+export const AdminloginSchema = z.object({
     Email: z.string().email("Email incorrecto"),
     Password: z.string().min(8, "La contraseña debe tener 8 caracteres"),
 });
@@ -37,7 +37,7 @@ export const CheckInSchema = z.object({
 });
 
 // Esquema para salida (log)
-export const CheckoutSchema = z.object({
+export const CheckOutSchema = z.object({
     UserID: z.number(),
     ExitTime: z.string().min(1, "La fecha de salida es obligatoria"),
 });

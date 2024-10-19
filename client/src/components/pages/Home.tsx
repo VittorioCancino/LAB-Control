@@ -1,8 +1,14 @@
+import React from "react";
+import Navbar from "../Navbar/Navbar";
+import Header from "../Header/Header";
+
 function Home() {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <h1 className="text-4xl font-bold">Hello World</h1>
-    </div>
+    <>
+      <Navbar />
+      <Header />
+      <Header />
+    </>
   );
 }
 
