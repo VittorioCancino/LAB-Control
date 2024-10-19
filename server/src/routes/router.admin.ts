@@ -61,4 +61,31 @@ routerAdmin.get(
     AdminController.GetUserData // TODO <= funcion del controller boss vittorio
 )
 
+// Ruta para obtener usuarios activos
+routerAdmin.get(
+    "/active-users",
+    [
+        body("Name").optional().isString(),
+        body("EntryTime").isDate()
+        body("Reason").isIn(["Entrada", "Salida"]).withMessage("El motivo debe ser 'entrada' o 'salida'"),
+    ]
+    HandleInputErros,
+    AdminController.getActiveUsers // Controlador que manejará la lógica
+);
+
+// Ruta para el login de los admin
+
+routerAdmin.get(
+    "/login",
+    [
+        body("Email").isEmail().withMessage("Email inválido"),
+        body("Password").notEmpty().isString().isLength({ min: 8 }).withMessage("La contraseña es obligatoria y debe tener al menos 8 caracteres")
+    ],
+    HandleInputErros,
+    AdminController.login     // TODO a;adir funcion del controlador
+
+);
+
+
+
 export default routerAdmin;
