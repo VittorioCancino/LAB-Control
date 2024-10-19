@@ -1,5 +1,6 @@
 import express from "express";
 import db from "./config/db";
+import routerAdmin from "./routes/router.admin";
 
 // Define Conection to the Data Base
 async function connectDB() {
@@ -20,5 +21,6 @@ const cors = require("cors");
 server.use(cors());
 server.use(express.json());
 
-
+// Define API Routes
+server.use("/API/Admin", routerAdmin)
 export default server;

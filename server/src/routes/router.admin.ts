@@ -19,10 +19,11 @@ routerAdmin.post(
         body("Email").isEmail().withMessage("Email incorrecto"),
         body("Rut").matches(/^\d{7,8}-[0-9kK]$/).withMessage("Rut invalido"),
         body("Career").isString().withMessage("La carrera es obligatoria").notEmpty(),
-        body("Rol").isIn(["Ayudante", "Admin", "Externo"]).withMessage("Rol invalido"),
+        body("Role").isIn(["Ayudante", "Admin", "Externo"]).withMessage("Rol invalido"),
     ],
     HandleInputErros,
-    validateRut,
+    // FIXME Rut validateRut Not Functioning
+    //validateRut,
     AdminController.CreateUser // TODO <= funcion del controller boss vittorio
 )
 
