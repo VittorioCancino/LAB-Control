@@ -1,4 +1,4 @@
-import {Table, Column, Model, PrimaryKey, AutoIncrement, DataType, Unique, HasOne} from "sequelize-typescript"
+import { Table, Column, Model, PrimaryKey, AutoIncrement, DataType, Unique, HasOne } from "sequelize-typescript"
 import Active from "./Active.model";
 import Log from "./Log.model";
 
@@ -51,14 +51,7 @@ class User extends Model {
     @Column({
         type: DataType.STRING
     })
-    declare Rol: string;
+    declare Role: string;
 
-    // Relation to Actives
-    @HasOne(() => Active, "UserId")
-	declare Active;
-
-    // Relation to Logs
-    @HasOne(() => Log, "UserId")
-	declare Log;
 }
 export default User
