@@ -64,7 +64,7 @@ export class AdminController {
             if (!ValidateWord(req.body.Role, UserRols)) {
                 console.log(`User ${req.body.Role} is does not exist`)
                 res.status(422).send({
-                    error: "Error Code 422 (Unprocessable Entity): 'Field Rol' The field entered in the Role attribute does not exist among the accepted options."
+                    error: `Error Code 422 (Unprocessable Entity): 'Field Rol' The field ${req.body.Role} entered in the Role attribute does not exist among the accepted options.`
                 })
                 return
             }
@@ -74,7 +74,7 @@ export class AdminController {
             if (!ValidateWord(req.body.Career, UserCareers)) {
                 console.log(`User Career "${req.body.Career}" is does not exist`)
                 res.status(422).send({
-                    error: "Error Code 422 (Unprocessable Entity): 'Field Career' The field entered in the Career attribute does not exist among the accepted options."
+                    error: `Error Code 422 (Unprocessable Entity): 'Field Career' The field ${req.body.Career} entered in the Career attribute does not exist among the accepted options.`
                 })
                 return
             }
