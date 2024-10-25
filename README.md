@@ -95,30 +95,53 @@ docker compose up
 # Project Structure
 ```
 .
+.
 ├── client
-│   ├── Dockerfile
-│   ├── index.html
-│   └── src
-│       ├── App.tsx
-│       ├── components
-│       │   └── pages
-│       │       └── Home.tsx
-│       ├── index.css
-│       └── main.tsx
+│   ├── Dockerfile
+│   ├── index.html
+│   ├── public
+│   └── src
+│       ├── api
+│       │   └── AdminApi.ts
+│       ├── App.tsx
+│       ├── components
+│       │   ├── Header
+│       │   ├── Navbar
+│       │   └── pages
+│       ├── index.css
+│       ├── lib
+│       │   └── AxiosAdmin.ts
+│       ├── main.tsx
+│       └── types
+│           └── index.ts
 ├── compose.yaml
 ├── README.md
-├── .env 
 └── server
     ├── Dockerfile
-    ├── .env
     └── src
         ├── config
-        │   └── db.ts    
+        │   └── db.ts
+        ├── controllers
+        │   ├── Admin.Controller.ts
+        │   └── Attendance.Controller.ts
         ├── index.ts
+        ├── middleware
+        │   ├── index.ts
+        │   └── RutValidator.ts
+        ├── models
+        │   ├── Active.model.ts
+        │   ├── Admin.model.ts
+        │   ├── FingerPrint.model.ts
+        │   ├── Log.model.ts
+        │   └── User.model.ts
+        ├── routes
+        │   ├── router.admin.ts
+        │   └── router.attendance.ts
         └── server.ts
-        └── server.ts
+
+
 ```
-# Project Structure (Definition)
+# Project Structure (Definition) (Update Needed)
 ```
 .
 ├── client                    # Frontend directory
