@@ -8,7 +8,7 @@ const InitialSchema =
         Email: z.string().email("Email incorrecto"),
         Rut: z.string().regex(/^\d{7,8}-[-9kK]$/, "rut invalido"),
         Career: z.string().min(1),
-        Rol: z.enum(["Ayudante", "Admin", "Externo"]),
+        Role: z.enum(["Ayudante", "Admin", "Externo"]),
     });
 
 // Esquema para crear usuario 
