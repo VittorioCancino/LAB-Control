@@ -17,7 +17,7 @@ routerAdmin.post(
         body("Name").isString().withMessage("El nombre es obligatorio").notEmpty(),
         body("LastName").isString().withMessage("Los apellidos son obligatorios").notEmpty(),
         body("Email").isEmail().withMessage("Email incorrecto"),
-        body("Rut").matches(/^\d{7,8}-[0-9kK]$/).withMessage("Rut invalido"),
+        body("Rut"),
         body("Career").isString().withMessage("La carrera es obligatoria").notEmpty(),
         body("Role").isIn(["Ayudante", "Admin", "Externo"]).withMessage("Rol invalido"),
     ],
@@ -75,7 +75,7 @@ routerAdmin.get(
 
 // Ruta para el login de los admin
 
-routerAdmin.get(
+routerAdmin.post(
     "/login",
     [
         body("Email").isEmail().withMessage("Email inválido"),

@@ -142,6 +142,7 @@ export class AdminController {
 
     static Login = async (req: Request, res: Response) => {
         try {
+            console.log("Hay conexión")
 
         } catch (error) {
 

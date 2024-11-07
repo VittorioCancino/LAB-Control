@@ -1,15 +1,15 @@
 import { z } from "zod";
 
 // Esquema general usuario
-const InitialSchema = 
-z.object({
-    Name: z.string().min(1,"El nombre es obligatorio"),
-    LastName: z.string().min(1, "Los appelidos son obligatorios"),
-    Email: z.string().email("Email incorrecto"),
-    Rut: z.string().regex(/^\d{7,8}-[-9kK]$/, "rut invalido"),
-    Career: z.string().min(1),
-    Rol: z.enum(["Ayudante","Admin","Externo"]),
-});
+const InitialSchema =
+    z.object({
+        Name: z.string().min(1, "El nombre es obligatorio"),
+        LastName: z.string().min(1, "Los appelidos son obligatorios"),
+        Email: z.string().email("Email incorrecto"),
+        Rut: z.string().regex(/^\d{7,8}-[-9kK]$/, "rut invalido"),
+        Career: z.string().min(1),
+        Role: z.enum(["Ayudante", "Admin", "Externo"]),
+    });
 
 // Esquema para crear usuario 
 export const CreateUserSchema = InitialSchema;
@@ -20,7 +20,7 @@ export const UpdateUserSchema = InitialSchema.partial();
 
 // Esquema para obtener usuario 
 export const GetActiveUserSchema = z.object({
-    Name: z.string().min(1,"El nombre es obligatorio"),
+    Name: z.string().min(1, "El nombre es obligatorio"),
     LastName: z.string().min(1, "Los appelidos son obligatorios"),
     EntryTime: z.string().min(1, "La fecha de entrada es obligatoria"),
     Reason: z.string().min(1, "El motivo es obligatorio"),
@@ -34,11 +34,14 @@ export const DeleteUserSchema = z.object({
     Password: z.string().min(8, "La contraseña debe tener 8 caracteres"),
 });
 
+
 // Esquema para inicio de sesión
 export const AdminloginSchema = z.object({
     Email: z.string().email("Email incorrecto"),
     Password: z.string().min(8, "La contraseña debe tener 8 caracteres"),
 });
+export type LoginAdmin = z.infer<typeof AdminloginSchema>;
+
 
 // Esquema para ingreso de huella
 export const CheckInSchema = z.object({
