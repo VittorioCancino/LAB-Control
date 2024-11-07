@@ -26,7 +26,7 @@ export async function CreateUsers(formdata: CreateUser) {
 export async function LoginAdmins(formdata: LoginAdmin) {
 	try {
 		const url = "/login";
-		const { data } = await API_ADMIN.get(url);
+		const { data } = await API_ADMIN.post(url, formdata);
 		return data;
 	} catch (error) {
 		if (isAxiosError(error) && error.message) {

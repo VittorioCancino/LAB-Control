@@ -75,7 +75,7 @@ routerAdmin.get(
 
 // Ruta para el login de los admin
 
-routerAdmin.get(
+routerAdmin.post(
     "/login",
     [
         body("Email").isEmail().withMessage("Email inválido"),
