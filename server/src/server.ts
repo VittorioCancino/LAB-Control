@@ -1,6 +1,8 @@
 import express from "express";
 import db from "./config/db";
-import routerAdmin from "./routes/router.admin";
+import RouterUser from "./routes/router.user";
+import RouterCareer from "./routes/router.career";
+import RouterRole from "./routes/router.role";
 
 // Define Conection to the Data Base
 async function connectDB() {
@@ -22,5 +24,7 @@ server.use(cors());
 server.use(express.json());
 
 // Define API Routes
-server.use("/API/Admin", routerAdmin)
+server.use("/API/User", RouterUser)
+server.use("/API/Career", RouterCareer)
+server.use("/API/Role", RouterRole)
 export default server;

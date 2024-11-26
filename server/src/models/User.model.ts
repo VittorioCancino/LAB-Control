@@ -1,6 +1,8 @@
-import { Table, Column, Model, PrimaryKey, AutoIncrement, DataType, Unique, HasOne } from "sequelize-typescript"
+import { Table, Column, Model, PrimaryKey, AutoIncrement, DataType, Unique, HasOne, ForeignKey, BelongsTo } from "sequelize-typescript"
 import Active from "./Active.model";
 import Log from "./Log.model";
+import Career from "./Career.model";
+import Role from "./Role.model";
 
 @Table({
     tableName: "User",
@@ -42,16 +44,26 @@ class User extends Model {
     })
     declare LastName: string;
 
-    // Current Career of the User
-    @Column({
-        type: DataType.STRING
-    })
-    declare Career: string;
 
+    // Current Career of the User
+    @ForeignKey(() => Career)
     @Column({
-        type: DataType.STRING
+        type: DataType.INTEGER
     })
-    declare Role: string;
+    declare Career: number;
+    @BelongsTo(() => Career)
+    declare CareerFK
+
+    // Current Role of the User
+    @ForeignKey(() => Role)
+    @Column({
+        type: DataType.INTEGER
+    })
+    declare Role: number;
+    @BelongsTo(() => Role)
+    declare RoleFK
+
+
 
 }
 export default User
